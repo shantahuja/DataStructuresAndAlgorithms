@@ -79,7 +79,8 @@ class Graph {
 
       for (let key of this.nodes.get(walker.name).edgesMap.keys()) {
         if (key == name2) {
-          walker = this.nodes.get(key);
+          // walker = this.nodes.get(key);
+          shortestNode = key;
           break;
         } else if (shortestNode == null) {
           shortestNode = key;
@@ -90,6 +91,8 @@ class Graph {
           shortestNode = key;
         }
       }
+
+      walker = this.nodes.get(shortestNode);
     }
     console.log(myString + walker.name);
   }
@@ -122,8 +125,8 @@ function main() {
   graph.display();
   // console.log(graph);
 
-  graph.nearestNeighborAlgo("A", "D");
-  // graph.nearestNeighborAlgo("C", "A");
+  // graph.nearestNeighborAlgo("A", "D");
+  graph.nearestNeighborAlgo("C", "A");
 }
 
 main();
